@@ -2,24 +2,6 @@
   "version": 2,
   "buildCommand": "npm run build",
   "installCommand": "npm install && cd backend && npm install && cd ../devsync-frontend && npm install",
-  "builds": [
-    {
-      "src": "devsync-frontend/package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "devsync-frontend/dist",
-        "buildCommand": "npm run build"
-      }
-    },
-    {
-      "src": "backend/server.js",
-      "use": "@vercel/node",
-      "config": {
-        "maxLambdaSize": "50mb",
-        "runtime": "nodejs18.x"
-      }
-    }
-  ],
   "routes": [
     {
       "src": "/api/(.*)",
