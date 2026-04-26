@@ -1,24 +1,76 @@
 {
   "version": 2,
+  "buildCommand": "npm run build",
+  "installCommand": "npm install && cd backend && npm install && cd ../devsync-frontend && npm install",
   "builds": [
     {
       "src": "devsync-frontend/package.json",
       "use": "@vercel/static-build",
-      "config": { "distDir": "dist" }
+      "config": {
+        "distDir": "devsync-frontend/dist",
+        "buildCommand": "npm run build"
+      }
     },
     {
-      "src": "backend/package.json",
-      "use": "@vercel/node"
+      "src": "backend/server.js",
+      "use": "@vercel/node",
+      "config": {
+        "maxLambdaSize": "50mb",
+        "runtime": "nodejs18.x"
+      }
     }
   ],
   "routes": [
     {
       "src": "/api/(.*)",
+      "dest": "backend/server.js",
+      "methods": ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"]
+    },
+    {
+      "src": "/health",
+      "dest": "backend/server.js"
+    },
+    {
+      "src": "/rate-limit",
+      "dest": "backend/server.js"
+    },
+    {
+      "src": "/resolve",
+      "dest": "backend/server.js"
+    },
+    {
+      "src": "/repo",
+      "dest": "backend/server.js"
+    },
+    {
+      "src": "/repo/(.*)",
+      "dest": "backend/server.js"
+    },
+    {
+      "src": "/contributors",
+      "dest": "backend/server.js"
+    },
+    {
+      "src": "/contributors/(.*)",
+      "dest": "backend/server.js"
+    },
+    {
+      "src": "/dashboard/(.*)",
       "dest": "backend/server.js"
     },
     {
       "src": "/(.*)",
-      "dest": "devsync-frontend/dist/$1"
+      "dest": "devsync-frontend/dist/index.html",
+      "status": 200
     }
-  ]
+  ],
+  "env": {
+    "NODE_ENV": "production"
+  },
+  "functions": {
+    "backend/server.js": {
+      "maxDuration": 30,
+      "memory": 1024
+    }
+  }
 }

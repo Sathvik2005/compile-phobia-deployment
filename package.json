@@ -1,6 +1,23 @@
 {
+  "name": "compile-phobia",
+  "version": "1.0.0",
+  "description": "Full-stack GitHub analytics and repository insight tool",
+  "private": true,
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "scripts": {
+    "build": "cd devsync-frontend && npm run build",
+    "dev": "concurrently \"cd backend && npm run dev\" \"cd devsync-frontend && npm run dev\"",
+    "start": "cd backend && npm start",
+    "install-all": "npm install && cd backend && npm install && cd ../devsync-frontend && npm install"
+  },
   "dependencies": {
     "framer-motion": "^12.38.0",
     "recharts": "^3.8.1"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
   }
 }
