@@ -1,0 +1,68 @@
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: #0f172a;
+  color: white;
+}
+
+/* LAYOUT */
+.container {
+  display: flex;
+}
+
+/* SIDEBAR */
+.sidebar {
+  width: 220px;
+  height: 100vh;
+  background: #020617;
+  padding: 20px;
+  border-right: 1px solid #1e293b;
+}
+
+/* MAIN */
+.main {
+  flex: 1;
+  padding: 30px;
+}
+
+/* SEARCH */
+.search {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.search input {
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  width: 250px;
+}
+
+.search button {
+  padding: 12px 20px;
+  border-radius: 10px;
+  border: none;
+  background: #00e5ff;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* DASHBOARD */
+.dashboard {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* CARDS */
+.card {
+  background: #020617;
+  padding: 20px;
+  border-radius: 15px;
+  border: 1px solid #1e293b;
+}
+
+.card.large {
+  grid-column: span 3;
+}
