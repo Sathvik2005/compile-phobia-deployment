@@ -1,8 +1,16 @@
 {
   "version": 2,
-  "buildCommand": "npm run build",
   "installCommand": "npm install && cd backend && npm install && cd ../devsync-frontend && npm install",
+  "buildCommand": "npm run build",
+  "outputDirectory": "devsync-frontend/dist",
+  "framework": "vite",
   "env": {
     "NODE_ENV": "production"
-  }
+  },
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
 }
