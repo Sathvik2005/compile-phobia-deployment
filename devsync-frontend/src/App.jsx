@@ -25,8 +25,7 @@ function App() {
 
     try {
       const [owner, repoName] = repo.split("/");
-      // Use relative /api path for both local dev (proxied by Vite) and production (Vercel functions)
-      const base = "/api";
+      const base = "https://compile-phobia.onrender.com";
 
       const [
         repoRes,
