@@ -7,10 +7,19 @@
   "env": {
     "NODE_ENV": "production"
   },
-  "rewrites": [
+  "functions": {
+    "api/**": {
+      "runtime": "nodejs18.x"
+    }
+  },
+  "routes": [
     {
-      "source": "/(.*)",
-      "destination": "/index.html"
+      "src": "/api(.*)",
+      "dest": "/api$1"
+    },
+    {
+      "src": "^/(?!api/)",
+      "dest": "/index.html"
     }
   ]
 }

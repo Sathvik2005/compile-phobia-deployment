@@ -1,0 +1,64 @@
+# Vercel ignore list
+# Skip large development and build files
+
+# Dependencies
+node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json
+
+# Build outputs (these are rebuilt on Vercel)
+devsync-frontend/node_modules/
+backend/node_modules/
+*.log
+
+# Development files
+.env
+.env.local
+.env.*.local
+
+# Git
+.git
+.gitignore
+.gitattributes
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Documentation and tests
+README.md
+docs/
+test/
+tests/
+*.test.js
+*.spec.js
+
+# Render/Railway configs (not needed for Vercel)
+render.yaml
+Procfile
+railway.json
+
+# Docker files (not needed for Vercel)
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+# Other deployment guides
+DEPLOYMENT.md
+VERCEL_COMPLETE_SETUP.md
+VERCEL_DEPLOYMENT.md
+VERCEL_QUICK_START.md
+DOCKER_GUIDE.md
+TESTING_GUIDE.md
+DEPENDENCIES.md
+FEATURES_VERIFICATION.md
+PRODUCTION_READY.md
+DEPLOYMENT_READY.md
+COMMIT_SCORING.md
+STYLING_GUIDE.md
+API_DOCUMENTATION.md
